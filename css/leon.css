@@ -1,0 +1,448 @@
+/*  start Global rules */
+:root {
+  --main-color: #10cab7;
+  --secondary-color: #2c4755;
+  --section_padding: 60px;
+  --section_background: #f6f6f6;
+  --main-duration: 0.3s;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* -> smooth est une propriété tres importante */
+body {
+  font-family: "Work Sans", sans-serif;
+}
+h .parent {
+  background-color: #eee;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+/* Start Conponent */
+.special_heading {
+  color: #ebeced;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin: 0;
+}
+.special_heading + p {
+  color: #666666;
+  margin: -40px;
+  text-align: center;
+  font-size: 20px;
+}
+@media (max-width: 483px) {
+  .special_heading {
+    font-size: 60px;
+  }
+  .special_heading + p {
+    margin-top: -20px;
+  }
+}
+/* End Conponent */
+/* Start Header */
+.header {
+  padding: 20px;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  width: 60px;
+}
+.header .links {
+  position: relative;
+  /* realative 5tir bich t3mil hover 3al linket illi bich t7othom absolute */
+}
+.header .links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+.header .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap; /* bech kif les elements y3abyou ecran yahbtou ta7t b3athom */
+  justify-content: flex-end;
+}
+.header .links .icon span {
+  background-color: #333;
+  margin-bottom: 5px;
+  height: 2px;
+}
+.header .links .icon span:first-child {
+  width: 100%;
+}
+.header .links .icon span:nth-child(2) {
+  width: 60%;
+  transition: var(--main-duration);
+}
+
+.header .links .icon span:last-child {
+  width: 100%;
+}
+.header .links ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  background-color: #f6f6f6;
+  position: absolute;
+  right: 0;
+  min-width: 200px;
+  top: calc(100% + 15px);
+  display: none;
+  z-index: 1;
+  /*Z-index bech todhhor fou9 taswira   */
+}
+.header .links ul::before {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #f6f6f6 transparent;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
+.header .links:hover ul {
+  display: block;
+}
+.header .links ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: var(--main-duration);
+}
+.header .links ul li a:hover {
+  padding-left: 25px;
+}
+
+.header .links ul li:not(:last-child) a {
+  /* li moch e5ir we7id w link elli fi wostou */
+  border-bottom: 1px solid #ddd;
+}
+.landing {
+  background-image: url(../imgs/mountain.jpg);
+  background-size: cover;
+  /* la difference entre cover et contain :
+  - cover t5alilk toswira bark 7atta ken tmedid toul ou 3ordh to93od dima taswira bark
+  - contain :kolmetmedid toul taswira tit3awid */
+  height: calc(100vh - 64px);
+  position: relative;
+}
+.landing .intro_text {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 320px;
+  max-width: 100%;
+}
+.landing .intro_text h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--main-color);
+}
+.landing .intro_text p {
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.8;
+}
+/* End Header  */
+
+/* Start features  */
+.features {
+  padding-top: var(--section_padding);
+  padding-bottom: var(--section_padding);
+  background-color: var(--section_background);
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.features .container .feat {
+  padding: 20px;
+  text-align: center;
+}
+
+.features .container .feat i {
+  color: var(--main-color);
+  font-size: 30px;
+}
+.features .container .feat h3 {
+  font-weight: 800;
+  margin: 30px 0;
+}
+.features .container .feat p {
+  line-height: 1.8;
+  color: #777;
+  font-size: 17px;
+}
+/* End features */
+/* Start Services */
+.services {
+  padding-top: var(--section_padding);
+  padding-bottom: var(--section_padding);
+}
+.services .services_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* hedhi lbe9i mefhimthech bilbehi lezim narja3 lil vedio mte3 repeat wella bi chat */
+  grid-gap: 30px;
+  margin-top: 100px;
+  justify-content: space-evenly;
+}
+.services .services_content .srv {
+  display: flex;
+  margin-bottom: 40px;
+}
+@media (max-width: 483px) {
+  .services .services_content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.services_content i {
+  color: var(--main-color);
+  flex-basis: 60px;
+}
+.srv .text {
+  flex: 1;
+}
+.srv .text h3 {
+  margin: 0 0 20px;
+}
+.srv .text p {
+  color: #444;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.services .services_content .srv .image {
+  text-align: center;
+  position: relative;
+}
+
+.services .services_content .srv .image::before {
+  content: "";
+  background-color: var(--secondary-color);
+  top: -50px;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: calc(100% + 40px);
+  z-index: -1;
+}
+.services .services_content .srv .image img {
+  width: 260px;
+  height: 300px;
+}
+@media (max-width: 1199px) {
+  .img_col {
+    display: none;
+  }
+}
+
+/* End Services */
+/* Start Portfolio */
+.Portfolio {
+  padding-top: var(--section_padding);
+  padding-bottom: var(--section_padding);
+  background-color: var(--section_background);
+}
+
+.Portfolio .portfolio_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  margin-top: 100px;
+}
+.Portfolio .portfolio_content .card {
+  background-color: white;
+} /* End Portfolio */
+.Portfolio .portfolio_content .card img {
+  max-width: 100%;
+}
+.Portfolio .portfolio_content .card .info {
+  padding: 20px;
+}
+.Portfolio .portfolio_content .card .info h3 {
+  margin: 0;
+}
+.Portfolio .portfolio_content .card .info p {
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+/* tnajim fil mobile t3mil card responsive w trod il text align center */
+/* End Portfolio */
+
+/* Strat About */
+.About {
+  padding-top: var(--section_padding);
+  padding-bottom: calc(var(--section_padding) + 60px);
+}
+.About_content {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (max-width: 991px) {
+  .About_content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.About_content .image {
+  position: relative;
+  /* .image houwa div pére 5atir bich norsmou fih 7jet w nist7a9ouhom */
+  width: 250px;
+  height: 375px;
+}
+@media (max-width: 991px) {
+  .About_content .image {
+    margin: 0 auto 60px;
+  }
+}
+.About_content .image img {
+  max-width: 100%;
+}
+.About_content .image::before {
+  content: "";
+  position: absolute;
+  background-color: #ebeced;
+  width: 100px;
+  height: 100%;
+  top: -40px;
+  left: -20px;
+  z-index: -1;
+}
+.About_content .image::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 300px;
+  top: -40px;
+  border-left: 80px solid var(--main-color);
+  border-bottom: 80px solid var(--main-color);
+  z-index: -1;
+  right: -150px;
+}
+@media (max-width: 991px) {
+  .About_content .image::after,
+  .About_content .image::before {
+    display: none;
+  }
+}
+/* -> @media hedhi nista3mloha bech tna7i les effet mte3 taswira */
+.About_content .text {
+  flex-basis: calc(100% - 500px);
+  /* ou bien au lieu de flex besis tu peut faire :
+  - flex:1;
+  - padding-left: 207px
+  donc les deux méthodes sont justes */
+}
+.About_content .text p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 50px;
+  line-height: 2;
+}
+.About_content .text hr {
+  border-color: var(--main-color);
+  width: 50%;
+  display: inline-block;
+}
+.About_content .text p:last-of-type {
+  line-height: 1.6;
+  color: #777;
+} /* End About */
+/* Start Contact */
+.Contact {
+  padding-top: var(--section_padding);
+  padding-bottom: var(--section_padding);
+  background-color: var(--section_background);
+}
+.Contact .info {
+  padding-top: var(--section_padding);
+  padding-bottom: var(--section_padding);
+  text-align: center;
+}
+.Contact .info .label {
+  font-size: 30px;
+  font-weight: 800;
+  /* ->800 5atir 9alik fil photoshop extrabold  */
+  color: var(--secondary-color);
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+}
+.Contact .info .link {
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 35px;
+  font-weight: 800;
+  /* display: block; */
+}
+.Contact .info .social {
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  font-size: 16px;
+}
+.Contact .info .social i {
+  margin-left: 10px;
+  color: var(--secondary-color);
+}
+@media (max-width: 767px) {
+  .Contact .info .label,
+  .Contact .info .link {
+    font-size: 25px;
+  }
+}
+.footer {
+  text-align: center;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 18px;
+  padding: 30px 30px;
+}
+.footer span {
+  font-weight: bold;
+  color: var(--main-color);
+}
+/* End Contact */
